@@ -2,11 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://algerliu.github.io/</id>
     <title>Alger博客</title>
-    <updated>2020-02-03T13:33:51.971Z</updated>
+    <updated>2020-02-03T14:19:03.773Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://algerliu.github.io/"/>
     <link rel="self" href="https://algerliu.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>&lt;a id=&quot;hitokoto&quot; style=&quot;font-size: 17px;&quot;&gt; &lt;/a&gt;
+	&lt;script&gt;
+		clock();
+var int = self.setInterval(&quot;clock()&quot;, 10000);
+
+		
+
+		function clock() {
+			fetch(&apos;https://v1.hitokoto.cn/?c=g&apos;)
+				.then(function (res) {
+					return res.json();
+				})
+				.then(function (data) {
+					var hitokoto = document.getElementById(&apos;hitokoto&apos;);
+					if (data.hitokoto.length &lt; 40) {
+						hitokoto.innerText = &quot;「 &quot; + data.hitokoto + &quot; 」&quot;;
+					}
+
+
+				})
+				.catch(function (err) {
+					console.error(err);
+				})
+		}
+
+	&lt;/script&gt;</subtitle>
     <logo>https://algerliu.github.io/images/avatar.png</logo>
     <icon>https://algerliu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Alger博客</rights>
