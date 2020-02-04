@@ -1,24 +1,108 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
- <head>
-    <meta charset="utf-8" />
-  <title>Alger博客</title>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-  <link rel="stylesheet" href="https://algerliu.github.io//styles/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
- </head>
- <body>
-     <div class="sidebar animated fadeInDown">
-   <div class="logo-title">
-    <div class="title">
-     <img src="https://algerliu.github.io//images/avatar.png?v=1580742632471" style="width:127px;" />
+<html>
+  <head>
+    <meta charset="utf-8" >
 
-     <h3 title=""><a href="/">Alger空城</a></h3>
+<title>标签列表 | Alger博客</title>
 
-     <div class="description">
-      <p><a id="hitokoto" style="font-size: 17px;"> </a>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://algerliu.github.io//favicon.ico?v=1580790029826">
+<link rel="stylesheet" href="https://algerliu.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="&lt;a id=&#34;hitokoto&#34; style=&#34;font-size: 17px;&#34;&gt; &lt;/a&gt;
+	&lt;script&gt;
+		clock();
+var int = self.setInterval(&#34;clock()&#34;, 10000);
+
+		
+
+		function clock() {
+			fetch(&#39;https://v1.hitokoto.cn/?c=g&#39;)
+				.then(function (res) {
+					return res.json();
+				})
+				.then(function (data) {
+					var hitokoto = document.getElementById(&#39;hitokoto&#39;);
+					if (data.hitokoto.length &lt; 40) {
+						hitokoto.innerText = &#34;「 &#34; + data.hitokoto + &#34; 」&#34;;
+					}
+
+
+				})
+				.catch(function (err) {
+					console.error(err);
+				})
+		}
+
+	&lt;/script&gt;">
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://algerliu.github.io/">
+        <img src="https://algerliu.github.io//images/avatar.png?v=1580790029826" class="site-logo">
+        <h1 class="site-title">Alger博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/about" class="site-nav" target="_blank">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <a id="hitokoto" style="font-size: 17px;"> </a>
 	<script>
 		clock();
 var int = self.setInterval("clock()", 10000);
@@ -43,86 +127,50 @@ var int = self.setInterval("clock()", 10000);
 				})
 		}
 
-	</script></p>
-     </div>
+	</script>
     </div>
-   </div>
-   <ul class="social-links">
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-   </ul>
-   <div class="footer">
-    <div class="by_farbox">
-   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <style>body{color:#333333;}</style>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <style>body{color:#333333;}</style> | <a class="rss" href="https://algerliu.github.io//atom.xml" target="_blank">RSS</a>
     </div>
-    
-
-    </div>
-   </div>
   </div>
-  <div class="main">
-      <div class="page-top animated fadeInDown">
-    <div class="nav">
-
-     <li><a  href="/">首页</a></li>
-
-     <li><a  href="/archives">归档</a></li>
-
-     <li><a  href="/tags">标签</a></li>
-
-     <li><a  href="/about">关于</a></li>
+</div>
 
 
-    </div>
-    <div class="information">
-     <div class="back_btn">
-      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li>
-     </div>
-    </div>
-   </div>
-   <div class="autopagerize_page_element">
-    <div class="content">
-         
-     <div class="post animated fadeInDown">
-  <div class="tags-container">
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="tag-list-title">标签列表</h2>
+          <div class="tags-container">
             
-              <a class="jinggetag" href="https://algerliu.github.io/tag/gPOyVGnGJ">Gridea</a>
-            
-
+              <a class="tag" href="https://algerliu.github.io/tag/gPOyVGnGJ">Gridea</a>
             
           </div>
-
+        </div>
       </div>
-     </div>
-    
-  
     </div>
-   </div>
-  </div>
-  <script src="https://algerliu.github.io//media/scripts/jquery.js"></script>
-  <script src="https://algerliu.github.io//media/scripts/jquery-migrate-1.2.1.min.js"></script>
-  <script src="https://algerliu.github.io//media/scripts/jquery.appear.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
 
 
- </body>
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
 </html>
