@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://algerliu.github.io/</id>
     <title>Alger博客</title>
-    <updated>2020-02-04T04:21:13.366Z</updated>
+    <updated>2020-02-04T09:01:34.737Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://algerliu.github.io/"/>
     <link rel="self" href="https://algerliu.github.io/atom.xml"/>
@@ -41,8 +41,10 @@ var int = self.setInterval(&quot;clock()&quot;, 10000);
         <link href="https://algerliu.github.io/hello-internet">
         </link>
         <updated>2020-02-04T04:17:55.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
-<p>👏  欢迎观看 <strong>Alger</strong>的第一篇blog ！<br>
+        <summary type="html"><![CDATA[<p>👏  欢迎观看 <strong>Alger</strong>的第一篇blog ！<br>
+✍️  记录<strong>Alger</strong> 的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎观看 <strong>Alger</strong>的第一篇blog ！<br>
 ✍️  记录<strong>Alger</strong> 的生活、心情、知识、笔记、创意... ...</p>
 <!-- more -->
 <p><a href="https://github.com/algerkong">Github</a></p>
