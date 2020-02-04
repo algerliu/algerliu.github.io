@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://algerliu.github.io//favicon.ico?v=1580821455255">
+<link rel="shortcut icon" href="https://algerliu.github.io//favicon.ico?v=1580821746795">
 <link rel="stylesheet" href="https://algerliu.github.io//styles/main.css">
 
 
@@ -37,7 +37,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://algerliu.github.io/">
-        <img src="https://algerliu.github.io//images/avatar.png?v=1580821455255" class="site-logo">
+        <img src="https://algerliu.github.io//images/avatar.png?v=1580821746795" class="site-logo">
         <h1 class="site-title">Alger博客</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -174,9 +174,7 @@ var map = new Highcharts.Map('map', {
 <h2 id="数据抓取">数据抓取</h2>
 <p>通过分析数据，发现网页的数据不是异步加载的，是直接写在网页里面的</p>
 <p>包含了各省市各地区的数据</p>
-<figure data-type="image" tabindex="3"><img src="https://mmbiz.qpic.cn/mmbiz_png/HautRxjCevseppUyO4kViaGFF4rCujrcouJ7tic45HkscurWNxTAyaxyqE1C3AakqhrusfqBlMsjWs5XoxRHoa0g/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<p>首先把数据截取下来，看看数据的结构，解析后，发现json数据结构如下</p>
-<figure data-type="image" tabindex="4"><img src="https://mmbiz.qpic.cn/mmbiz_png/HautRxjCevseppUyO4kViaGFF4rCujrcoicib3scUzVCHqwM6T5ibv0gEkbKQFDIpe92OGzDXKBKJrUFZKlqxGBibsA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
+<p>首先把数据截取下来，看看数据的结构，解析后，发现json数据结构</p>
 <p>我们的地图数据肯定是不能直接拿来用的，所以得自己获取数据，解析成上面代码中[{name:'省份',value:人数}]这样的数据。</p>
 <p>首先使用PHP爬取数据，并且使用正则表达式截取这一段json</p>
 <pre><code class="language-json">$url = &quot;https://3g.dxy.cn/newh5/view/pneumonia&quot;; 
@@ -194,14 +192,10 @@ $list = json_decode($result[1]);
  }
 </code></pre>
 <p>这时候，数据已经变成了我们需要的数据了。</p>
-<figure data-type="image" tabindex="5"><img src="https://mmbiz.qpic.cn/mmbiz_png/HautRxjCevseppUyO4kViaGFF4rCujrco34E9SoibXaJRgYCfMHKoTfsNchhbrfvNu0WjzKCoHrN7RGwlA7AdibEA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
 <p>那么，接下来就是修改最开始的前端代码，这儿既然使用PHP，那就直接一步到位，不用异步调用。</p>
 <p>并且，为了解决不每次访问都去爬取一次丁香医生的网站，所以访问的功能得单独提取出来，设置为半小时或者一小时实时访问一次，并且把数据存入文件，每次访问前端，就直接读取文件就行了，能加快访问的速度。</p>
 <p>使用<strong>宝塔定时任务</strong>，或者手动访问单一PHP文件即可，这儿不多赘述。</p>
-<figure data-type="image" tabindex="6"><img src="https://mmbiz.qpic.cn/mmbiz_gif/HautRxjCevseppUyO4kViaGFF4rCujrcoXXibGia0ZVP75icIonicwyKOhJFib14rByJc89sPKtufIng6c4FXJsV2voQ/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="img" loading="lazy"></figure>
 <p>最后，设置地图的主题色为红色，并且修改标题内容，简单地图制作完成</p>
-<figure data-type="image" tabindex="7"><img src="https://mmbiz.qpic.cn/mmbiz_png/HautRxjCevseppUyO4kViaGFF4rCujrco0yGc3MPPrRtglrquqFtCUxUwLpbjTDUa5JTLn0aSXZdEuyKKEicib2gg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img" loading="lazy"></figure>
-<figure data-type="image" tabindex="8"><img src="https://mmbiz.qpic.cn/mmbiz_gif/HautRxjCevseppUyO4kViaGFF4rCujrcoXXibGia0ZVP75icIonicwyKOhJFib14rByJc89sPKtufIng6c4FXJsV2voQ/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="img" loading="lazy"></figure>
 <h2 id="调用">调用📢</h2>
 <p>大家只需要引用这个网页即可。</p>
 <pre><code class="language-html">&lt;iframe src=&quot;https://www.lovestu.com/api/project/cnmapyinqing/obj.php&quot; height=&quot;500&quot; frameborder=&quot;no&quot; border=&quot;0&quot; width=&quot;100%&quot;&gt; &lt;/iframe&gt;
