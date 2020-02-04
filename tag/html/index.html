@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 Alger | Alger博客</title>
+<title>HTML | Alger博客</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,18 +18,32 @@
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
+    <meta name="description" content="&lt;a id=&#34;hitokoto&#34; style=&#34;font-size: 17px;&#34;&gt; &lt;/a&gt;
+	&lt;script&gt;
+		clock();
+var int = self.setInterval(&#34;clock()&#34;, 10000);
 
-🏠 关于本站
-    Alger的博客，一个又逗又笨的程序员的牢骚
+		
 
-📬 联系我呀
-1、QQ：1455048564
-2、邮箱：liuliujjjjasd@gmail.com
+		function clock() {
+			fetch(&#39;https://v1.hitokoto.cn/?c=g&#39;)
+				.then(function (res) {
+					return res.json();
+				})
+				.then(function (data) {
+					var hitokoto = document.getElementById(&#39;hitokoto&#39;);
+					if (data.hitokoto.length &lt; 40) {
+						hitokoto.innerText = &#34;「 &#34; + data.hitokoto + &#34; 」&#34;;
+					}
 
-..." />
-    <meta name="keywords" content="" />
+
+				})
+				.catch(function (err) {
+					console.error(err);
+				})
+		}
+
+	&lt;/script&gt;">
   </head>
   <body>
     <div id="app" class="main">
@@ -124,29 +138,35 @@ var int = self.setInterval("clock()", 10000);
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">关于 Alger</h2>
-            <div class="post-date">2019-01-25</div>
-            
-            <div class="post-content" v-pre>
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<pre><code>    Alger的博客，一个又逗又笨的程序员的牢骚
-</code></pre>
-<h2 id="联系我呀">📬 联系我呀</h2>
-<pre><code>1、QQ：1455048564
-2、邮箱：liuliujjjjasd@gmail.com
-</code></pre>
+          <h2 class="current-tag">标签: HTML</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://algerliu.github.io/htmlcss-mo-fang-shang-pin-zhan-shi">
+                  <h2 class="post-title">HTML+CSS 模仿商品展示 💻</h2>
+                </a>
+                <div class="post-date">
+                  2020-02-04
+                </div>
+                <div class="post-abstract">
+                  <p>💁今天我们来实现一个简单的<strong><strong>商品展示</strong></strong>小页面</p>
+<p>用到的知识主要是<code>:hover</code>和<code>position</code></p>
 
-            </div>
-            
-            
+                </div>
+              </div>
+              
+                <a class="right" href="https://algerliu.github.io/htmlcss-mo-fang-shang-pin-zhan-shi">
+                  <div class="feature-container" style="background-image: url('https://s2.ax1x.com/2020/02/04/1D9VhT.gif')">
+                  </div>
+                </a>
+              
+            </article>
+          
 
-            
-
-          </div>
+          <div class="pagination-container">
+  
+  
+</div>
 
         </div>
       </div>

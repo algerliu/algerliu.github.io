@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>HTML+CSS 模仿商品展示 💻 | Alger博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://algerliu.github.io//favicon.ico?v=1580809755945">
+<link rel="stylesheet" href="https://algerliu.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="💁今天我们来实现一个简单的商品展示小页面
+用到的知识主要是:hover和position
+
+HTML代码⬇️
+    &lt;!-- 第一个商品 --&gt;
+
+&lt;main&gt;
+        &lt;article&gt;
+ ..." />
+    <meta name="keywords" content="HTML" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://algerliu.github.io/">
+        <img src="https://algerliu.github.io//images/avatar.png?v=1580809755945" class="site-logo">
+        <h1 class="site-title">Alger博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            分类
+          </a>
+        
+      
+        
+          <a href="/about" class="site-nav" target="_blank">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <a id="hitokoto" style="font-size: 17px;"> </a>
+	<script>
+		clock();
+var int = self.setInterval("clock()", 10000);
+
+		
+
+		function clock() {
+			fetch('https://v1.hitokoto.cn/?c=g')
+				.then(function (res) {
+					return res.json();
+				})
+				.then(function (data) {
+					var hitokoto = document.getElementById('hitokoto');
+					if (data.hitokoto.length < 40) {
+						hitokoto.innerText = "「 " + data.hitokoto + " 」";
+					}
+
+
+				})
+				.catch(function (err) {
+					console.error(err);
+				})
+		}
+
+	</script>
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <style>body{color:#333333;}</style> | <a class="rss" href="https://algerliu.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">HTML+CSS 模仿商品展示 💻</h2>
+            <div class="post-date">2020-02-04</div>
+            
+              <div class="feature-container" style="background-image: url('https://s2.ax1x.com/2020/02/04/1D9VhT.gif')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>💁今天我们来实现一个简单的<strong><strong>商品展示</strong></strong>小页面</p>
+<p>用到的知识主要是<code>:hover</code>和<code>position</code></p>
+<!-- more -->
+<h2 id="html代码️">HTML代码<strong>⬇️</strong></h2>
+<pre><code class="language-html">    &lt;!-- 第一个商品 --&gt;
+
+&lt;main&gt;
+        &lt;article&gt;
+            &lt;div&gt;&lt;img src=&quot;图片链接&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+        &lt;/article&gt;
+        &lt;div&gt;
+            &lt;h2&gt;小米CC9PRO [一亿像素]&lt;/h2&gt;
+            &lt;p&gt;
+                &lt;span style=&quot;color: red;&quot;&gt;「分期享6期免息，购机享1TB小米云空间1年使用权」&lt;/span&gt;
+                &lt;br&gt; 1亿像素主摄 / 全场景五摄像头 / 四闪光灯 / 3200万自拍 / 10倍混合光学变焦，50倍数字变焦 / 5260mAh ⼤电量 / 标配 30W疾速快充 / ⼩米⾸款超薄屏下指纹 / 德国莱茵低蓝光认证 / 多功能NFC / 红外万能遥控 / 1216超线性扬声器
+            &lt;/p&gt;
+        &lt;/div&gt;
+&lt;/main&gt;
+
+    &lt;!-- 第二个商品 --&gt;
+&lt;div class=&quot;sp-page&quot;&gt;
+        &lt;div class=&quot;img-box&quot;&gt;
+            &lt;img src=&quot;图片链接&quot; alt=&quot;&quot;&gt;
+            &lt;div class=&quot;text&quot;&gt;
+                &lt;h1&gt;关于图片的介绍&lt;/h1&gt;
+                &lt;p&gt;关于图片的介绍关于图片的介于图片于图片的的绍&lt;/p&gt;
+                &lt;p&gt;关于图片的介绍于图片的关于图片的介绍&lt;/p&gt;
+                &lt;p&gt;关于图片的介绍关于图片的介绍&lt;/p&gt;
+                &lt;button&gt;Learn more&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="css代码️">CSS代码<strong>⬇️</strong></h2>
+<pre><code class="language-css">
+/*第一个商品*/
+     main {
+            width: 500px;
+            height: 400px;
+            background-color: #696969;
+            margin: 0 auto;
+            border: 5px solid #000;
+            overflow: hidden;
+        }
+
+        main&gt;article {
+            height: 268px;
+            overflow: hidden;
+            transition: .8s;
+        }
+
+        main:hover article {
+            height: 0;
+        }
+
+        article&gt;div img {
+            height: 270px;
+        }
+
+        main&gt;div p {
+            color: rgba(255, 255, 255, 0);
+            transition: 1s;
+        }
+
+        main&gt;div {
+            color: #ffffff;
+            padding: 20px;
+            border-top: 5px solid #ffffff;
+            box-sizing: border-box;
+            transition: 1s;
+        }
+
+        main:hover div {
+            border: none;
+        }
+
+        main:hover div&gt;p {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        div&gt;h2 {
+            font-size: 30pt;
+            line-height: 2.8em;
+            text-align: center;
+        }
+
+
+
+
+
+
+
+
+/*第二个商品*/
+
+    .sp-page{
+        margin: 50px auto;
+        width: 400px ;
+        height: 215px;
+        border: 20px solid #4b4b4b;
+        overflow: hidden;
+
+    }
+    .sp-page&gt;.img-box{
+        width: 390px;
+        height: 205px;
+        overflow: hidden;
+        position: relative;
+        border: 5px solid #ffffff;
+    }
+    .sp-page&gt;.img-box&gt;img{
+        width: 390px;
+        height: 205px;
+        transition: all 0.3s linear 0s;
+    }
+    .img-box:hover img{
+        transform: scale(1.2);
+    }
+    .text{
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        width: 390px;
+        height: 205px;
+        background-color: #ffffffd0;
+        overflow: hidden;
+        transition: 1s;
+        transition-delay: .5s;
+        text-align: center;
+    }
+    .img-box:hover .text{
+        top: 0;
+        left: 0;
+    }
+    button{
+        margin: 10px;
+        padding: 5px 10px;
+        background-color: #2a8d8d;
+        color: white;
+        border: #000 solid 1px;
+        cursor: pointer;
+    }
+</code></pre>
+<p>🔵       <a href="http://alger.cf/practice/%E4%BE%8B%E5%AD%90/CSS%E5%AE%9E%E7%8E%B0%E5%A4%A9%E7%8C%AB%E5%95%86%E5%93%81%E6%A0%B7%E5%BC%8F.html"><strong>展示页面</strong></a></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://algerliu.github.io/tag/html" class="tag">
+                    HTML
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://algerliu.github.io/hello-internet">
+                  <h3 class="post-title">
+                    Hello Internet
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
